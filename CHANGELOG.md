@@ -9,3 +9,9 @@ Established the first Alfred identity, mascot references, and public visual home
 Addressed and qualified feedback that v0.1 was visual-heavy and operationally thin. Separated visual assets, portable ontology, review fixtures, and the Alfred operational mandate. Added audience routing, authority boundaries, decision questions, continuity handoff, and outcome-trace templates.
 
 This public skeleton changes documents only. It does not install anything, connect private sources, create a ledger or runner, schedule reviews, or establish outcomes, adoption, or improved decisions. Future review belongs at an existing user-approved review point when evidence changes or an assumption proves wrong. A self-amendment is a proposal with a diff and reason for Michael to approve, never an autonomous constitution rewrite.
+
+## 0.3 · 2026-09-06
+
+Added the Alfred Workbench: reusable light/dark design tokens, an SVG icon sprite, component specimens, and interactive conversation, decision-review, and editorial examples. Kept the existing mascot PNGs and persona contract. Extracted the home page styling so token CSS can be reused independently.
+
+The interface examples are demonstrations, not live AI or private records. This release does not establish adoption, complete accessibility certification, or improved decision outcomes. Global Atelier remains unchanged.
