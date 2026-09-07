@@ -42,7 +42,11 @@ css = (r / 'tokens.css').read_text()
 blocks = {selector.strip(): dict(re.findall(r'--([\w-]+):\s*([^;]+);', body)) for selector, body in re.findall(r'([^{}]+)\{([^{}]*)\}', re.sub(r'/\*.*?\*/', '', css, flags=re.S))}
 for selector, values in [(':root', tokens['base']), (':root, [data-theme="light"]', tokens['themes']['light']), ('[data-theme="dark"]', tokens['themes']['dark'])]:
     assert blocks[selector] == {'alfred-' + k: v for k, v in values.items()}, 'Token projection drift: ' + selector
-assert blocks[':root, [data-theme]'] == {k: 'var(--alfred-' + v + ')' for k,v in tokens['legacyAliases'].items()}
+assert 'legacyAliases' not in tokens, 'Remove migrated aliases'
+assert set(blocks) == {':root', ':root, [data-theme="light"]', '[data-theme="dark"]'}, 'Unexpected token block'
+home = (r/'index.html').read_text()
+assert 'var(--alfred-danger)' not in home, 'Homepage has no danger actions; use action or decorative tokens'
+assert not re.search(r'var\(--(?:ivory|paper|charcoal|red|muted|line|shadow|serif|sans|touch)\b', home), 'Unmigrated homepage alias'
 component_css = (r / 'design-system.css').read_text()
 assert not re.search(r'#[0-9a-fA-F]{3,8}\b', component_css), 'Hardcoded component color'
 refs = set(re.findall(r'var\(--(alfred-[\w-]+)', component_css))
@@ -56,13 +60,18 @@ def contrast(a,b):
     x,y = sorted([lum(a),lum(b)]); return (y+.05)/(x+.05)
 ratios=[]
 for theme,t in tokens['themes'].items():
+    assert len({t['accent'],t['focus'],t['danger']}) == 3, 'Action, focus and danger collide'
     pairs=[(fg,bg,4.5) for fg in ['text','muted'] for bg in ['canvas','surface','surface-2']]
     pairs += [(fg,'surface',4.5) for fg in ['success','warning','danger','accent']]
     pairs += [('on-accent',bg,4.5) for bg in ['accent','accent-hover']]
-    pairs += [('border',bg,3) for bg in ['canvas','surface','surface-2']]
+    pairs += [(fg,bg,3) for fg in ['border','focus'] for bg in ['canvas','surface','surface-2']]
     for fg,bg,minimum in pairs:
         ratio=contrast(t[fg],t[bg]); ratios.append(ratio)
         assert ratio >= minimum, f'{theme} {fg}/{bg}: {ratio:.2f} below {minimum}'
+html = (r/'design-system.html').read_text()
+assert all(name in html for name in ['decision-card','evidence-block','data-table','Refresh trigger','Next action','Provenance','Confidence','Not reported','Reported zero']), 'Missing decision/evidence/data semantics'
+assert '<caption>' in html and 'scope="col"' in html and 'scope="row"' in html, 'Table needs caption and scoped headers'
+assert 'font-variant-numeric: tabular-nums' in component_css, 'Numeric alignment missing'
 svg=ET.parse(r/'icons.svg'); ns={'s':'http://www.w3.org/2000/svg'}
 symbols=svg.findall('.//s:symbol',ns); ids=[s.attrib['id'] for s in symbols]
 assert len(ids)==10 and len(set(ids))==10, 'Icon sprite inventory'

@@ -15,3 +15,9 @@ This public skeleton changes documents only. It does not install anything, conne
 Added the Alfred Workbench: reusable light/dark design tokens, an SVG icon sprite, component specimens, and interactive conversation, decision-review, and editorial examples. Kept the existing mascot PNGs and persona contract. Extracted the home page styling so token CSS can be reused independently.
 
 The interface examples are demonstrations, not live AI or private records. This release does not establish adoption, complete accessibility certification, or improved decision outcomes. Global Atelier remains unchanged.
+
+## 0.3.1 · 2026-09-06
+
+Separated neutral primary actions, blue keyboard focus, and red danger states. Added decision and evidence specimens and a table that distinguishes missing data from reported zero. Migrated the existing homepage to semantic tokens before removing the alias layer. Reduced the prominence of generic specimens.
+
+This is a corrected reference edition, not downstream product adoption. Review consumption by 1 October 2026; further expansion depends on a named consumer. The existing fonts, two themes, and character assets remain.

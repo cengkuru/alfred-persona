@@ -20,7 +20,7 @@ Copy this prompt:
 
 Original inspiration: [Moein's mascot reference](https://x.com/designbymoein/status/2096289484577071567).
 
-## Design system 0.3
+## Design system 0.3.1
 
 Download [tokens JSON](tokens.json), [token CSS](tokens.css), [component and workbench CSS](design-system.css), and the [icon sprite](icons.svg). The four PNGs above are the existing character assets.
 
@@ -28,6 +28,14 @@ The JSON keys under `base` and each theme map directly to `--alfred-<key>` CSS p
 
 Load `tokens.css` before `design-system.css`. Use the component markup from the Workbench; its script runs the reference examples, not an AI backend. The styles include page-level defaults, so scope or adapt those when integrating into an existing product. Use `<svg class="icon" aria-hidden="true"><use href="icons.svg#evidence"></use></svg>` beside a visible label. Serve the files over HTTP for external SVG references.
 
-The examples hold demonstration state in the current page. They do not send messages, store decisions, or connect private sources. The light/dark preference may be remembered by the browser. The warm Alfred palette is a local evolution directed by Michael; installed global Atelier guidance is unchanged.
+The examples hold demonstration state in the current page. They do not send messages, store decisions, or connect private sources. The light/dark preference may be remembered by the browser. The warm Alfred palette is a local evolution directed by Michael; Atelier is Michael’s visual system for his own work. This repository is its Alfred-specific experiment, not a change to other sites or tools.
 
 Structural inspiration: Adobe's [Spectrum](https://spectrum.adobe.com/page/home/) organizes principles, foundations, components, guidance, and implementations. Alfred uses its own visual identity and interaction examples.
+
+### Intended use and adoption boundary
+
+This corrected reference edition focuses on decisions, evidence, and numeric records. Use the decision card to expose the owner, next action, deadline, and refresh trigger. Use the evidence block to keep provenance separate from confidence and explain what that confidence covers. Tables keep reported zero distinct from missing data. All specimen values are synthetic.
+
+Observed on 6 September 2026: this repository's persona home and workbench load the tokens. No downstream application adoption is established by this repository. Buzz and cengkuru.com are candidate consumers, not confirmed integrations. A real integration requires an identifiable application or served page using these tokens, or a traceable derived build, in its actual interface.
+
+Review actual consumption by 1 October 2026. If no consumer is verified, hold scope at this corrected edition until one has a concrete need. Keep existing typography and two themes; defer new variants, chart scaffolding, runtime code, and font dependencies. No new consumer is being integrated in this revision.

@@ -1,4 +1,4 @@
-/* Generated projection of tokens.json. Keep values in parity; make check verifies every token. */
+/* Exact projection of tokens.json; verified by make check. */
 :root {
   --alfred-ivory: #F4F0E8;
   --alfred-paper: #FBF9F5;
@@ -43,10 +43,10 @@
   --alfred-muted: #696159;
   --alfred-border: #81776B;
   --alfred-divider: #D9D0C4;
-  --alfred-accent: #AA3429;
+  --alfred-accent: #252422;
   --alfred-on-accent: #FBF9F5;
-  --alfred-accent-hover: #86271F;
-  --alfred-focus: #AA3429;
+  --alfred-accent-hover: #403D39;
+  --alfred-focus: #245D8C;
   --alfred-success: #365A43;
   --alfred-warning: #785114;
   --alfred-danger: #AA3429;
@@ -60,24 +60,12 @@
   --alfred-muted: #C3B9AD;
   --alfred-border: #A79B8D;
   --alfred-divider: #57504A;
-  --alfred-accent: #E27668;
+  --alfred-accent: #F4F0E8;
   --alfred-on-accent: #252422;
-  --alfred-accent-hover: #F39A8D;
-  --alfred-focus: #E27668;
+  --alfred-accent-hover: #DED5C8;
+  --alfred-focus: #8DBDE8;
   --alfred-success: #A3C3AA;
   --alfred-warning: #E2BB7B;
   --alfred-danger: #F39A8D;
   --alfred-shadow: 0 1rem 3rem color-mix(in oklch, var(--alfred-canvas) 45%, transparent);
-}
-:root, [data-theme] {
-  --ivory: var(--alfred-canvas);
-  --paper: var(--alfred-surface);
-  --charcoal: var(--alfred-text);
-  --red: var(--alfred-accent);
-  --muted: var(--alfred-muted);
-  --line: var(--alfred-divider);
-  --shadow: var(--alfred-shadow);
-  --serif: var(--alfred-serif);
-  --sans: var(--alfred-sans);
-  --touch: var(--alfred-control-height);
 }
