@@ -1,6 +1,6 @@
 # Alfred assets
 
-This is the descriptive visual layer for proposed v0.2. It does not define runtime behaviour.
+This is the descriptive visual layer for Alfred and the adopted warm Atelier direction. It does not define runtime behaviour or replace institutional brand ownership.
 
 | Asset | Dimensions | Use |
 |---|---:|---|
